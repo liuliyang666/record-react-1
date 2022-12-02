@@ -4,6 +4,7 @@ import { useTags } from '../useTags';
 import styled from 'styled-components';
 import Icon from '../components/Icon';
 import { Link } from 'react-router-dom';
+import { Button } from '../components/Button';
 
 
 const TagList = styled.ol`
@@ -12,25 +13,14 @@ const TagList = styled.ol`
   > li{
     border-bottom: 1px solid #d5d5d9;
     line-height: 20px;
-    
     margin-left: 16px;
-   
     > a{
       padding: 12px 16px 12px 0;
       display: flex;
-    justify-content: space-between;
-    align-items: center;
+      justify-content: space-between;
+      align-items: center;
     }
   }
-`
-
-const Button = styled.button`
-  font-size: 18px; 
-  border: none;
-  padding: 8px 12px;
-  background: #f60; 
-  border-radius: 4px;
-  color: white;
 `
 
 const Center = styled.div`
