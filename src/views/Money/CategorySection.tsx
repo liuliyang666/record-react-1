@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import {useState} from 'react';
+import { useState } from "react";
 
 const Wrapper = styled.section`
   font-size: 24px;
-  > ul{
+  > ul {
     display: flex;
     background: #c4c4c4;
-    > li{
+    > li {
       width: 50%;
       text-align: center;
       padding: 16px 0;
       position: relative;
-      &.selected::after{
-        content: '';
+      &.selected::after {
+        content: "";
         display: block;
         height: 3px;
         background: #333;
@@ -27,24 +27,32 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: '-' | '+',
-  onChange: (value: '-' | '+') => void;
-}
+  value: "-" | "+";
+  onChange: (value: "-" | "+") => void;
+};
 
 const CategorySection: React.FC<Props> = (props) => {
-  const categoryMap = {'-': '支出', '+': '收入'};
-  const [categoryList] = useState<('+' | '-')[]>(['-', '+'])
-  const category = props.value
+  const categoryMap = { "-": "支出", "+": "收入" };
+  const [categoryList] = useState<("+" | "-")[]>(["-", "+"]);
+  const category = props.value;
 
   return (
     <Wrapper>
       <ul>
-        {categoryList.map(c => 
-          <li key={c} className={category === c ? 'selected' : ''} onClick={() => {props.onChange(c);}}>{categoryMap[c]}</li>
-        )}
-        </ul>
+        {categoryList.map((c) => (
+          <li
+            key={c}
+            className={category === c ? "selected" : ""}
+            onClick={() => {
+              props.onChange(c);
+            }}
+          >
+            {categoryMap[c]}
+          </li>
+        ))}
+      </ul>
     </Wrapper>
-  )
-}
+  );
+};
 
-export {CategorySection}
+export { CategorySection };

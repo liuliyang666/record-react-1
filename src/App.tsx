@@ -1,15 +1,20 @@
-import React from 'react';
-import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import Money from './views/Money';
-import Statistics from './views/Statistics';
-import Tags from './views/Tags';
-import NoMatch from './views/NoMatch';
-import styled from 'styled-components';
-import { Tag } from './views/Tag';
+import React from "react";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Money from "./views/Money";
+import Statistics from "./views/Statistics";
+import Tags from "./views/Tags";
+import NoMatch from "./views/NoMatch";
+import styled from "styled-components";
+import { Tag } from "./views/Tag";
 
 const AppWrapper = styled.div`
   color: #333;
-`
+`;
 
 function App() {
   return (
@@ -17,27 +22,25 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/tags">
-            <Tags/>
+            <Tags />
           </Route>
           <Route exact path="/tags/:id">
-            <Tag/>
+            <Tag />
           </Route>
           <Route exact path="/money">
-            <Money/>
+            <Money />
           </Route>
           <Route exact path="/statistics">
-            <Statistics/>
+            <Statistics />
           </Route>
-          <Redirect exact from="/" to="/money"/>
+          <Redirect exact from="/" to="/money" />
           <Route path="*">
-            <NoMatch/>
+            <NoMatch />
           </Route>
         </Switch>
       </Router>
     </AppWrapper>
-    
   );
 }
-
 
 export default App;
