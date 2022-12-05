@@ -1,6 +1,6 @@
 import { useUpdate } from "hooks/useUpdate";
 import { useEffect, useRef, useState } from "react";
-import { createId } from "./lib/createId";
+import { createId } from "../lib/createId";
 
 const useTags = () => {
   // 封装一个自定义的 Hook
