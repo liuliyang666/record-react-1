@@ -43,6 +43,7 @@ const useTags = () => {
       setTags([...tags, { id: createId(), name: tagName }]);
     }
   };
+
   return { tags, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag };
 };
 

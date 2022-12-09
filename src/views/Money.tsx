@@ -6,6 +6,7 @@ import { CategorySection } from "./Money/CategorySection";
 import { NoteSection } from "./Money/NoteSection";
 import { NumberPadSection } from "./Money/NumberPadSection";
 import { useRecords } from "hooks/useRecords";
+import { useEffect } from 'react';
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -33,6 +34,12 @@ function Money() {
       setSelected(defaultFormData);
     }
   };
+  useEffect(()=>{
+    setTimeout(()=> {
+      console.log('时间到')
+      setSelected({...selected, amount: 1000})
+    }, 3000)
+  }, [])
   return (
     <MyLayout>
       <TagsSection
