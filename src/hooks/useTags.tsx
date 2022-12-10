@@ -1,5 +1,5 @@
 import { useUpdate } from "hooks/useUpdate";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createId } from "../lib/createId";
 
 const useTags = () => {
@@ -19,7 +19,7 @@ const useTags = () => {
   }, []); // 组件挂载时执行
   useUpdate(() => {
     window.localStorage.setItem("tags", JSON.stringify(tags));
-  }, [tags]);
+  }, tags);
   const findTag = (id: number) => tags.filter((tag) => tag.id === id)[0];
   const findTagIndex = (id: number) => {
     let result = -1;

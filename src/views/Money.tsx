@@ -5,8 +5,7 @@ import { TagsSection } from "./Money/TagsSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NoteSection } from "./Money/NoteSection";
 import { NumberPadSection } from "./Money/NumberPadSection";
-import { useRecords } from "hooks/useRecords";
-import { useEffect } from "react";
+import { useRecords } from "../hooks/useRecords";
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -25,9 +24,10 @@ const defaultFormData = {
 const CategoryWrapper = styled.div`
   background: #c4c4c4;
 `;
+
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
-  const { records, addRecord } = useRecords();
+  const { addRecord } = useRecords();
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({ ...selected, ...obj });
   };
@@ -38,7 +38,7 @@ function Money() {
     }
   };
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
       <TagsSection
         value={selected.tagIds}
         onChange={(tagIds) => onChange({ tagIds })}

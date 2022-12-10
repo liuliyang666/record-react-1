@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
 import React, { ReactNode, useState } from "react";
-import styled from "styled-components";
-import { RecordItem, useRecords } from "hooks/useRecords";
-import { useTags } from "hooks/useTags";
 import { CategorySection } from "./Money/CategorySection";
+import styled from "styled-components";
+import { RecordItem, useRecords } from "../hooks/useRecords";
+import { useTags } from "../hooks/useTags";
 import day from "dayjs";
 
 const CategoryWrapper = styled.div`
@@ -23,7 +23,6 @@ const Item = styled.div`
     color: #999;
   }
 `;
-
 const Header = styled.h3`
   font-size: 18px;
   line-height: 20px;
@@ -34,10 +33,10 @@ function Statistics() {
   const [category, setCategory] = useState<"-" | "+">("-");
   const { records } = useRecords();
   const { getName } = useTags();
-  const hash: { [k: string]: RecordItem[] } = {};
+  const hash: { [K: string]: RecordItem[] } = {}; // {'2020-05-11': [item, item], '2020-05-10': [item, item], '2020-05-12': [item, item, item, item]}
   const selectedRecords = records.filter((r) => r.category === category);
 
-  selectedRecords.map((r) => {
+  selectedRecords.forEach((r) => {
     const key = day(r.createdAt).format("YYYY年MM月DD日");
     if (!(key in hash)) {
       hash[key] = [];
@@ -51,6 +50,7 @@ function Statistics() {
     if (a[0] < b[0]) return 1;
     return 0;
   });
+
   return (
     <Layout>
       <CategoryWrapper>

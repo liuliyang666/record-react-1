@@ -16,6 +16,7 @@ const Label = styled.label`
     border: none;
   }
 `;
+
 type Props = {
   label: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
