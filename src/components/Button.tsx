@@ -4,9 +4,9 @@ const Button = styled.button`
   font-size: 18px;
   border: none;
   padding: 8px 12px;
-  background: #f60;
+  background: rgb(254, 218, 70);
   border-radius: 4px;
-  color: white;
+  color: black;
 `;
 
 export { Button };

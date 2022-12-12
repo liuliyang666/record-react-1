@@ -14,14 +14,14 @@ const Wrapper = styled.section`
   > ol {
     margin: 0 -12px;
     > li {
-      background: #d9d9d9;
+      background: rgb(245, 245, 245);
       border-radius: 18px;
       display: inline-block;
       padding: 3px 18px;
-      font-size: 14px;
+      font-size: 16px;
       margin: 8px 12px;
       &.selected {
-        background: #f60;
+        background: rgb(254, 218, 70);
       }
     }
   }

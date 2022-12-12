@@ -6,10 +6,6 @@ import { RecordItem, useRecords } from "../hooks/useRecords";
 import { useTags } from "../hooks/useTags";
 import day from "dayjs";
 
-const CategoryWrapper = styled.div`
-  background: white;
-`;
-
 const Item = styled.div`
   display: flex;
   justify-content: space-between;
@@ -23,6 +19,10 @@ const Item = styled.div`
     color: #999;
   }
 `;
+const CategoryWrapper = styled.div`
+  background: rgb(254, 218, 70);
+`;
+
 const Header = styled.h3`
   font-size: 18px;
   line-height: 20px;
@@ -33,7 +33,7 @@ function Statistics() {
   const [category, setCategory] = useState<"-" | "+">("-");
   const { records } = useRecords();
   const { getName } = useTags();
-  const hash: { [K: string]: RecordItem[] } = {}; // {'2020-05-11': [item, item], '2020-05-10': [item, item], '2020-05-12': [item, item, item, item]}
+  const hash: { [K: string]: RecordItem[] } = {};
   const selectedRecords = records.filter((r) => r.category === category);
 
   selectedRecords.forEach((r) => {
