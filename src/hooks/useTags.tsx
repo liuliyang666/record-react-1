@@ -1,9 +1,9 @@
-import { useUpdate } from "hooks/useUpdate";
 import { useEffect, useState } from "react";
-import { createId } from "../lib/createId";
+import { createId } from "lib/createId";
+import { useUpdate } from "./useUpdate";
 
 const useTags = () => {
-  // 封装一个自定义的 Hook
+  // 封装一个自定义 Hook
   const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
   useEffect(() => {
     let localTags = JSON.parse(window.localStorage.getItem("tags") || "[]");
@@ -38,6 +38,7 @@ const useTags = () => {
     setTags(tags.filter((tag) => tag.id !== id));
   };
   const addTag = () => {
+    console.log("hi");
     const tagName = window.prompt("新标签的名称为");
     if (tagName !== null && tagName !== "") {
       setTags([...tags, { id: createId(), name: tagName }]);

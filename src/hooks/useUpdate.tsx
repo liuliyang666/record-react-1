@@ -9,5 +9,5 @@ export const useUpdate = (fn: () => void, dependency: any[]) => {
     if (count.current > 1) {
       fn();
     }
-  }, dependency); // 不可变数据
+  }, [fn, dependency]); // 不可变数据
 };
